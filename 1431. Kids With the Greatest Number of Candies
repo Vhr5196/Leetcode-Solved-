@@ -1,1 +1,37 @@
+//https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/
 
+
+class Solution {
+public:
+    
+    vector<bool> kidsWithCandies(vector<int>& candies, int extraCandies) {
+        vector<bool> ans;
+        int n=candies.size();
+        int res=0,res1;
+        for(int i=0;i<n;i++)
+        {
+            res=max(res,candies[i]);
+            
+        }
+        for(int i=0;i<n;i++)
+        {
+            res1=candies[i];
+                if(res1>=res)
+                {
+                    ans.push_back(true);
+                }
+            else
+            {
+                res1=candies[i]+extraCandies;
+              if(res1>=res)
+                ans.push_back(true);
+                else
+                    ans.push_back(false);
+            }
+        
+        }
+        return ans;
+        
+        
+    }
+};
