@@ -1,0 +1,33 @@
+#https://leetcode.com/problems/palindrome-linked-list/
+
+
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        //could you do it in O(n) time and O(1)
+        ListNode* curr=head;
+        stack<int>s;
+        
+             while(curr!=NULL)
+             {
+                 s.push(curr->val);
+                 curr=curr->next;
+             }
+        while(head!=NULL)
+        {
+            int temp=s.top();
+            s.pop();
+            if(head->val!=temp)
+            {
+                return false;
+            }
+            head=head->next;
+            
+        }
+        return true;
+           
+            
+        
+        
+    }
+};
