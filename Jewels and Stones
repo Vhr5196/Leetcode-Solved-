@@ -1,0 +1,26 @@
+//https://leetcode.com/problems/jewels-and-stones/
+
+class Solution {
+public:
+    int numJewelsInStones(string J, string S) {
+        unordered_map<int,int>m;
+        int count=0;
+        for(int i=0;i<J.length();i++)
+        { m[J[i]]++;
+}
+        unordered_map<int,int>::iterator itr;
+        for(int j=0;j<S.length();j++)
+        {
+            int temp=S[j];
+            if(m.find(temp)!=m.end())
+            {
+                count++;
+            }
+            else
+            {
+                continue;
+            }
+        }
+        return count;
+    }
+};
